@@ -1,0 +1,30 @@
+name: Basics Project exercices
+on: [push, workflow_dispatch]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3.3.0
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3.3.0
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Test
+        run: npm run test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3.3.0
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Build
+        run: npm run build
